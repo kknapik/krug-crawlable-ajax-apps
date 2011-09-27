@@ -65,7 +65,7 @@ function SlidesController($route, $location, $xhr) {
   this.slides = [
     center(this.presentation.title, this.presentation.author),
 
-    slide('Agenda', '', '1-agenda.md'),
+    slide('Agenda', '', '0-agenda.md'),
     slide('User vs. crawler', 'What they like?', '1-user-vs-crawler.md'),
     slide('(almost) Preety URLs', '', '2-preety-urls.html'),
     slide('How crawlers see and index our ajax pages?', '', '3-how-crawler.html'),
