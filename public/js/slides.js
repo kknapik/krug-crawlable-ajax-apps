@@ -66,18 +66,18 @@ function SlidesController($route, $location, $xhr) {
     center(this.presentation.title, this.presentation.author),
 
     slide('Agenda', '', '1-agenda.md'),
-    slide('Making both user and crawler happy', 'How to do it when...', '2-making-user-crawler-happy.md'),
-    slide('How crawler seees and indexes our ajax pages?', '', '3-how-crawler-sees-ajax-pages.html'),
-    slide('Crawler friendly ajax URLs', '', '4-preety-and-ugly-urls.html'),
-    slide('Hints', '', '5-hints.html'),
+    slide('User vs. crawler', 'What they like?', '1-user-vs-crawler.md'),
+    slide('(almost) Preety URLs', '', '2-preety-urls.html'),
+    slide('How crawlers see and index our ajax pages?', '', '3-how-crawler.html'),
+    slide('Crawler friendly ajax URLs', '', '4-ugly-urls.html'),
+    slide('Ommiting hash part', '', '5-ommit-hash.html'),
     snippet('Rails routing & crawler', '', '6-rails-routing.rb'),
-    slide('HTML snapshot', 'Headless browsers FTW', '7-rails-html-snapshot.html'),
-    slide('HTML snapshot', 'Common templates?', '8-mustache.html'),
+    slide('HTML snapshots', 'Headless browsers FTW', '7-html-snapshots.html'),
     snippet('Shared templates', 'mustache (js & ruby)', '9-mustache.html'),
     snippet('Shared templates', 'mustache in ruby', '9-mustache.rb'),
     snippet('Shared templates', 'mustache in js', '9-mustache.js'),
     center("Questions?"),
-    center("Thank You :)")
+    center("Thank you :)")
   ];
 
   $route.parent(this);
