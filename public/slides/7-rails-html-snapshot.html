@@ -1,0 +1,24 @@
+<ul>
+  <li>
+    <p>selenium + xvfb:</p>
+    <code>
+      swd = Selenium::WebDriver::Remote.new :url => "http://localhost:4444/wb/pub"<br />
+      swd.get 'http://knapo.net/photos#!/photo/11'
+    </code>
+  </li>
+  <li>
+    <p>
+      <a href="https://github.com/jarib/celerity">celerity/HtmlUnit</a>(jruby):
+    </p>
+    <code>
+      browser = Celerity::Browser.new<br />
+      browser.goto 'http://knapo.net/photos#!/photo/11'
+    </code>
+  </li>
+  <li>
+    <p>
+      <a href="http://crawljax.com/">crawljax</a>. java, but might be run from command line
+    </p>
+    <code>java -jar crawljax-versionnr.jar URL</code>
+  </li>
+</ul>

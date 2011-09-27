@@ -5,8 +5,8 @@ function SlidesController($route, $location, $xhr) {
   this.$location = $location;
 
   this.presentation = {
-    title: "Creating testable JS web applications in AngularJS",
-    author: "Adam Pohorecki"
+    title: "Crawlable AJAX Applications",
+    author: "Krzysztof Knapik"
   };
 
   function center(title, subtitle) {
@@ -38,26 +38,6 @@ function SlidesController($route, $location, $xhr) {
     return thisSlide;
   }
 
-  function code(title, subtitle, name) {
-    var thisSlide = {
-      layout: 'code',
-      title: title,
-      subtitle: subtitle,
-      htmlCode: '',
-      jsCode: '',
-      load: function() {
-        $xhr('GET', '/slides/'+name+'.js', function(code, response) {
-          thisSlide.jsCode = response;
-        });
-        $xhr('GET', '/slides/'+name+'.html', function(code, response) {
-          thisSlide.htmlCode = response;
-        });
-      }
-    };
-
-    return thisSlide;
-  }
-
   function snippet(title, subtitle, source) {
     var thisSlide = {
       layout: 'snippet',
@@ -69,6 +49,8 @@ function SlidesController($route, $location, $xhr) {
         $xhr('GET', '/slides/'+source, function(code, response) {
           if(source.match(/\.js$/)) {
             thisSlide.mode = 'text/javascript';
+          } else if(source.match(/\.rb$/)) {
+            thisSlide.mode = 'text/x-ruby';
           } else {
             thisSlide.mode = 'text/html';
           }
@@ -83,57 +65,19 @@ function SlidesController($route, $location, $xhr) {
   this.slides = [
     center(this.presentation.title, this.presentation.author),
 
-    slide('Agenda', '', 'agenda.md'),
-    slide('AngularJS', 'What is AngularJS?', 'what_is_angular.md'),
-    slide('History', 'What is AngularJS?', 'angular_history.md'),
-    code('Basic Hello World', 'Hello World!', 'hello_world'),
-    code('Hello Controllers', 'Hello World!', 'hello_controllers'),
-
-    slide('Model View Controller', 'Angular MVC', 'angular_mvc.md'),
-
-    slide('Widgets', 'Building Blocks', 'widgets.md'),
-    code('Widget Example', 'Building Blocks', 'widget_example'),
-
-    slide('Directives', 'Building Blocks', 'directives.md'),
-    code('Directive Example', 'Building Blocks', 'directive_example'),
-
-    slide('Filters', 'Building Blocks', 'filters.md'),
-    code('Filter Example', 'Building Blocks', 'filters_example'),
-
-    slide('Formatters', 'Building Blocks', 'formatters.md'),
-    code('Formatter Example', 'Building Blocks', 'formatters_example'),
-
-    slide('Validators', 'Building Blocks', 'validators.md'),
-    code('Validator Example', 'Building Blocks', 'validators_example'),
-
-    slide('Services', 'Building Blocks', 'services.md'),
-    slide('Dependency Injection', 'Building Blocks', 'di.md'),
-    code('Service Example', 'Building Blocks', 'service_example'),
-
-    slide('Testability?', 'Testing', 'testability.md'),
-    slide('Unit Testing', 'Testing', 'unit_testing.md'),
-    slide('js-test-driver(-rails)', 'Testing', 'jstd.html'),
-    slide('Integration Testing', 'Testing', 'integration_testing.md'),
-
-    snippet('Sample Unit Test', 'Snippets', 'unit_test.js'),
-    snippet('Sample End-to-End Test', 'Snippets', 'e2e_test.js'),
-    snippet('Testing services', 'Snippets', 'service_test.js'),
-    snippet('Overwriting services for a single test', 'Snippets', 'service_override.js'),
-    snippet('Eager service', 'Snippets', 'eager_service.js'),
-    snippet('Get scope associated with HTML element', 'Snippets', 'jquery_scope.js'),
-    snippet('Resources', 'Snippets', 'resources.js'),
-    snippet('Routing', 'Snippets', 'routing.js'),
-    snippet('Routing HTML', 'Snippets', 'routing.html'),
-    code('Scope nesting example', 'Snippets', 'scope_nesting'),
-    snippet('Dependency injection in widget/directive', 'Snippets', 'di_widget.js'),
-    snippet('Constructor dependency injection', 'Snippets', 'constructor_di.js'),
-
-    slide('Summary', 'too long; slept through', 'summary.md'),
-
+    slide('Agenda', '', '1-agenda.md'),
+    slide('Making both user and crawler happy', 'How to do it when...', '2-making-user-crawler-happy.md'),
+    slide('How crawler seees and indexes our ajax pages?', '', '3-how-crawler-sees-ajax-pages.html'),
+    slide('Crawler friendly ajax URLs', '', '4-preety-and-ugly-urls.html'),
+    slide('Hints', '', '5-hints.html'),
+    snippet('Rails routing & crawler', '', '6-rails-routing.rb'),
+    slide('HTML snapshot', 'Headless browsers FTW', '7-rails-html-snapshot.html'),
+    slide('HTML snapshot', 'Common templates?', '8-mustache.html'),
+    snippet('Shared templates', 'mustache (js & ruby)', '9-mustache.html'),
+    snippet('Shared templates', 'mustache in ruby', '9-mustache.rb'),
+    snippet('Shared templates', 'mustache in js', '9-mustache.js'),
     center("Questions?"),
-    center("Thank You :)"),
-
-    slide('Next meeting', 'September', 'next_krug.md')
+    center("Thank You :)")
   ];
 
   $route.parent(this);

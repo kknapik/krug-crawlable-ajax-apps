@@ -155,7 +155,7 @@ h2 {
   clear: both;
 }
 
-.snippet pre {
+.snippet pre, code {
   font-family: monospace;
   background-color: #ddd;
   -moz-border-radius: 6px;
@@ -167,3 +167,12 @@ h2 {
   font-size: 0.8em;
   margin-right: 30px;
 }
+
+code{
+  display: block;
+  padding: 0.5em;
+}
+code b{font-weight: bold}
+ul li{padding: 3px 0}
+ul li a{color: #303b41}
+ul li p{padding: 6px 0 2px 0;}
