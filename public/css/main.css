@@ -176,3 +176,14 @@ code b{font-weight: bold}
 ul li{padding: 3px 0}
 ul li a{color: #303b41}
 ul li p{padding: 6px 0 2px 0;}
+#thank-you *{text-align: center}
+#thank-you h1{margin: 0.5em; color: #34adef}
+#thank-you h2{
+  margin: 0.2em;
+  color: #303b41;
+  text-shadow: 0.05em 0.05em 0.2em #303b41;
+}
+#thank-you p{
+  margin-top: 2em;
+  font-size: 0.8em;
+}

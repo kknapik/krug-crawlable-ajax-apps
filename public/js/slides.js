@@ -77,7 +77,7 @@ function SlidesController($route, $location, $xhr) {
     snippet('Shared templates', 'mustache in ruby', '9-mustache.rb'),
     snippet('Shared templates', 'mustache in js', '9-mustache.js'),
     center("Questions?"),
-    center("Thank you :)")
+    slide('', '', 'thank-you.html'),
   ];
 
   $route.parent(this);
